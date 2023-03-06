@@ -1,12 +1,13 @@
-class CartePizzeria:
-    def __init__(self) :
+class CartePizzeria :
+    def __init__(self, name):
         self.pizzas = []
+        self.name = name
 
     def is_empty(self):
         if len(self.pizzas) == 0:
             return True
         return False
-    
+
     def nb_pizzas(self):
         return len(self.pizzas)
 
@@ -14,8 +15,11 @@ class CartePizzeria:
         self.pizzas.append(pizza)
 
     def remove_pizza(self,name):
-        if (self.pizzas.count(name) < 1):
-            CartePizzeriaException()
-        self.pizzas.remove(name)
+         for pizza in self.pizzas:
+            if pizza.name == name:
+                self.pizzas.remmove(pizza)
+                return
+            raise CartePizzeriaException("La pizza n'est pas trouvée")
 
-
+class CartePizzeriaException(Exception):
+    pass
