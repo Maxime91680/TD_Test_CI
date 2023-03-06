@@ -1,7 +1,6 @@
 class CartePizzeria :
-    def __init__(self, name):
+    def __init__(self):
         self.pizzas = []
-        self.name = name
 
     def is_empty(self):
         if len(self.pizzas) == 0:
